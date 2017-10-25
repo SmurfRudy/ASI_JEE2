@@ -1,0 +1,5 @@
+module.exports = this;
+
+var port = 9999;
+
+var listFichiers = ["ex01.js"];
