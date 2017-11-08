@@ -2,7 +2,11 @@ import React from 'react';
 import './main.css';
 import '../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css';
 import * as contentMapTmp from '../../source/contentMap.json';
+<<<<<<< HEAD
 import CommonContent from '../common/content/containers/Content';
+=======
+
+>>>>>>> 044d5bc67658527d0fe7d5ee412f939fad9eb78e
 export default class Main extends React.Component{
 	constructor(props) {
 		super(props);
