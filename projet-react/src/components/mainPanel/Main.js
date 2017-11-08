@@ -17,10 +17,12 @@ export default class Main extends React.Component{
 			<div className='container-fluid height-100'>
 				<div className="row height-100">
 					<div className='col-md-3 col-lg-3 height-100 vertical-scroll'>
+						<Browse
 					</div>
 					<div className='col-md-6 col-lg-6 height-100'>
 					</div>
 					<div className='col-md-3 col-lg-3 height-100'>
+						<Browser
 					</div>
 				</div>
 			</div>
