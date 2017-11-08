@@ -2,6 +2,8 @@
 node_modules
 *~
 *.pyc
+*.project
+*.classpath
 .grunt
 _SpecRunner.html
 __benchmarks__
