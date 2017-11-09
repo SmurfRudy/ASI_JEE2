@@ -8,26 +8,35 @@ class BrowseContentPanel extends Component {
         super(props);
         this.state = {
         };
+        this.createContentList = this.createContentList.bind(this);
+    }
+
+    createContentList() {
+        let content_array = [];
+        for(var index in this.props.contentMap){
+            let content = this.props.contentMap[index];
+            content_array.push(
+                <div key={index}>
+                <Content
+                    id={content.id}
+                    title={content.title}
+                    src={content.src}
+                    type={content.type}
+                    onlyContent="true"
+                />
+                <p>ID : {content.id}</p>
+                <p>Title : {content.title}</p>
+                </div>
+            );
+        }
+        return content_array;
     }
 
     render() {
-        let content_array = [];
-
-         for(var i=0;i<this.props.contentMap.length;i++){
-            content_array.push(
-                <Content
-                    id={i.id}
-                    title={i.title}
-                    src={i.src}
-                    type={i.type}
-                    onlyContent="true"
-                />
-            );
-        }
-
+        const contentList = this.createContentList();
         return ( 
             <div>
-                {content_array}
+                {contentList}
             </div>
         );
     }
