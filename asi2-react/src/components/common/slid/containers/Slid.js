@@ -1,8 +1,10 @@
 import React from 'react';
 import Content from '../../content/containers/Content';
 import EditMetaSlid from '../components/EditMetaSlid';
-export default class Slid extends React.Component{
-	// props : id title txt content contentMap displayMode
+
+import { connect } from 'react-redux';
+import {setSelectedSlid } from '../../../../actions'
+class Slid extends React.Component{
 	constructor(props) {
         super(props);
 
@@ -11,15 +13,33 @@ export default class Slid extends React.Component{
         this.displaySlid = this.displaySlid.bind(this);
         this.handleChangeTitle = this.handleChangeTitle.bind(this);
         this.handleChangeTxt = this.handleChangeTxt.bind(this);
+        this.updateSelectedSlid=this.updateSelectedSlid.bind(this)
     }
 
-    handleChangeTitle() {
-    	return null;
+    handleChangeTitle(obj) {
+    	const tmpSlid={id:this.props.id,
+		title:obj.target.value,
+		txt:this.props.txt,
+		content_id:this.props.content_id};
+		this.props.dispatch(setSelectedSlid(tmpSlid));
     }
 
-    handleChangeTxt() {
-    	return null;
+    handleChangeTxt(obj) {
+    	const tmpSlid={id:this.props.id,
+		title:obj.target.title,
+		txt:this.state.txt,
+		content_id:this.props.content_id};
+		this.props.dispatch(setSelectedSlid(tmpSlid));
     }
+
+    updateSelectedSlid(){
+    	console.log(this);
+		const tmpSlid={id:this.props.id,
+		title:this.props.title,
+		txt:this.props.txt,
+		content_id:this.props.content_id};
+		this.props.dispatch(setSelectedSlid(tmpSlid));
+	}
 
     displaySlid(){
     	if (this.props.id === undefined)
@@ -28,7 +48,7 @@ export default class Slid extends React.Component{
     	if (this.props.displayMode === "SHORT"){
     		let content = this.props.contentMap[this.props.content];
     		return (
-    			<div>
+    			<div onClick={this.updateSelectedSlid}>
     			<h1>{this.props.title}</h1>
     			<p>{this.props.txt}</p>
     			<Content
@@ -67,3 +87,5 @@ export default class Slid extends React.Component{
 		return this.displaySlid();
 	}
 }
+
+export default connect()(Slid);

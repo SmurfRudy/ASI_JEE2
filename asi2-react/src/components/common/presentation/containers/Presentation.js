@@ -10,12 +10,17 @@ export default class Presentation extends React.Component{
         };
     }
 
+    handleChangeTitle(){
+
+    }
+
 	render(){
 		return(
 			<div>
 				<EditMetaPres id={this.props.id}
 								title={this.props.title}
 								description={this.props.description}
+								handleChangeTitle={this.handleChangeTitle}
 				/>
 				<SlidList slidArray={this.props.slidArray}
 							contentMap={this.props.contentMap}

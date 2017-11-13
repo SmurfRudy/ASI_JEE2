@@ -1,25 +1,25 @@
 import React from 'react';
 import Slid from '../../common/slid/containers/Slid';
-export default class EditSlidePanel extends React.Component{
+import {connect } from 'react-redux';
+
+class EditSlidePanel extends React.Component{
 
 	constructor(props) {
         super(props);
 
-        let tempSelected_slid = {};
         let tempContentMap = this.props.contentMap;
 
         this.state = {
-        	selected_slid:tempSelected_slid,
         	contentMap:tempContentMap,
         };
     }
 
 	render(){
+		console.log(this.props);
 		return(
-			//TODO binder le slid
-			<Slid id="1"
-						title="firstPres"
-						txt="test"
+			<Slid id={this.props.selected_slid.id}
+						title={this.props.selected_slid.title}
+						txt={this.props.selected_slid.txt}
 						content="temp"
 						contentMap={this.state.contentMap}
 						displayMode="FULL_MNG"
@@ -27,3 +27,11 @@ export default class EditSlidePanel extends React.Component{
 		);
 	}
 }
+
+const mapStateToProps = (state, ownProps) => {
+		return {
+			selected_slid: state.selectedReducer.slid,
+		}
+	};
+
+export default connect(mapStateToProps)(EditSlidePanel);
