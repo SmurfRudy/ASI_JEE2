@@ -7,10 +7,10 @@ class EditSlidePanel extends React.Component{
 	constructor(props) {
         super(props);
 
-        let tempContentMap = this.props.contentMap;
+        //let tempContentMap = this.props.contentMap;
 
         this.state = {
-        	contentMap:tempContentMap,
+        	//contentMap:tempContentMap,
         };
     }
 
@@ -21,7 +21,7 @@ class EditSlidePanel extends React.Component{
 						title={this.props.selected_slid.title}
 						txt={this.props.selected_slid.txt}
 						content="temp"
-						contentMap={this.state.contentMap}
+						contentMap={this.props.contentMap}
 						displayMode="FULL_MNG"
 			/>
 		);
@@ -29,9 +29,10 @@ class EditSlidePanel extends React.Component{
 }
 
 const mapStateToProps = (state, ownProps) => {
-		return {
-			selected_slid: state.selectedReducer.slid,
-		}
-	};
+	return {
+		selected_slid: state.selectedReducer.slid,
+		contentMap: state.updateModelReducer.contentMap,
+	}
+};
 
 export default connect(mapStateToProps)(EditSlidePanel);

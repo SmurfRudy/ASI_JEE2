@@ -29,7 +29,7 @@ export default class Main extends React.Component{
 			slidArray:tempSlidArray,
 			pres:presTmp,
 		}
-
+		
 		store.dispatch(updateContentMap(contentMapTmp));
 		store.dispatch(updatePresentation(presTmp));
 		store.dispatch(setSelectedSlid(tempSelectedSlid));

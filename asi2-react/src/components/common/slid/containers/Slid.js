@@ -33,7 +33,6 @@ class Slid extends React.Component{
     }
 
     updateSelectedSlid(){
-    	console.log(this);
 		const tmpSlid={id:this.props.id,
 		title:this.props.title,
 		txt:this.props.txt,

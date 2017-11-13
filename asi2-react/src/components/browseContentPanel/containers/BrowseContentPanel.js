@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import '../../App.css';
 import Content from '../../common/content/containers/Content';
+import {connect } from 'react-redux';
 
 class BrowseContentPanel extends Component {
 
@@ -42,4 +43,10 @@ class BrowseContentPanel extends Component {
     }
 }
 
-export default BrowseContentPanel;
+const mapStateToProps = (state, ownProps) => {
+    return {
+        contentMap: state.updateModelReducer.contentMap,
+    }
+};
+
+export default connect(mapStateToProps)(BrowseContentPanel);
