@@ -20,16 +20,14 @@ const store = createStore(globalReducer);
 export default class Main extends React.Component{
 	constructor(props) {
 		super(props);
-		let tempSlidArray = presTmp.slidArray;
 		let tempSelectedSlid = presTmp.slidArray[0];
 
 		this.state = {
 			contentMap:contentMapTmp,
 			selected_slid:tempSelectedSlid,
-			slidArray:tempSlidArray,
 			pres:presTmp,
 		}
-		
+
 		store.dispatch(updateContentMap(contentMapTmp));
 		store.dispatch(updatePresentation(presTmp));
 		store.dispatch(setSelectedSlid(tempSelectedSlid));
@@ -41,10 +39,10 @@ export default class Main extends React.Component{
 			<div className='container-fluid height-100'>
 				<div className="row height-100">
 					<div className='col-md-3 col-lg-3 height-100 vertical-scroll'>
-						<Presentation id={this.state.selected_slid.id}
-										title={this.state.selected_slid.title}
-										description={this.state.selected_slid.description}
-										slidArray={this.state.slidArray}
+						<Presentation id={this.state.pres.id}
+										title={this.state.pres.title}
+										description={this.state.pres.description}
+										slidArray={this.state.pres.slidArray}
 										contentMap={this.state.contentMap}
 						/>
 										

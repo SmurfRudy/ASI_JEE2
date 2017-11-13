@@ -7,15 +7,11 @@ class EditSlidePanel extends React.Component{
 	constructor(props) {
         super(props);
 
-        //let tempContentMap = this.props.contentMap;
-
         this.state = {
-        	//contentMap:tempContentMap,
         };
     }
 
 	render(){
-		console.log(this.props);
 		return(
 			<Slid id={this.props.selected_slid.id}
 						title={this.props.selected_slid.title}
