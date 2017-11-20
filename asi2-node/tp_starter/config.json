@@ -1,5 +1,5 @@
 {
   "port":1337,
-  "contentDirectory":"C:/Users/Maxime/ASI_JEE2/asi2-node/tp_starter/content/",
-  "presentationDirectory":"C:/Users/Maxime/ASI_JEE2/asi2-node/tp_starter/presentation/"
+  "contentDirectory":"./content/",
+  "presentationDirectory":"./presentation/"
 }

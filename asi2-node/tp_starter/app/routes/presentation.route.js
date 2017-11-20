@@ -7,7 +7,7 @@ router.route("/loadPres")
 .get(presController.loadPres)
 
 router.route("/savePres")
-.post(presController.insertPres)
+.post(presController.savePres)
 .put(presController.updatePres)
 
 module.exports = router;

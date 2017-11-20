@@ -14,6 +14,10 @@ var path = require("path");
 app.use("/admin", express.static(path.join(__dirname, "public/admin")));
 app.use("/watch", express.static(path.join(__dirname, "public/watch")));
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 var http = require("http");
 var server = http.createServer(app);
 server.listen(CONFIG.port);
