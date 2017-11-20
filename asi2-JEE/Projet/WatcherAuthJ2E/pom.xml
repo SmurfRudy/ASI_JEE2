@@ -61,7 +61,7 @@
             <groupId>fr.cpe</groupId>
             <artifactId>MiddleAuthWatcherEJBClient</artifactId>
             <type>ejb</type>
-            <version>3.1</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
