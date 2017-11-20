@@ -15,13 +15,12 @@ export default class DisplpayContent extends React.Component{
 		}
 
 		if (this.props.type === "video" || this.props.type === "web") {
-			content = <video src={this.props.src}/>;
+			content = <iframe title={this.props.title} controls src={this.props.src}/>;
 		}
 
 		return(
 			<div>
 			{content}
-			<h2>{this.props.title}</h2>
 			</div>
 		);
 	}

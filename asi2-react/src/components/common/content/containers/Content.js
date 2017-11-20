@@ -1,11 +1,11 @@
 import React from 'react';
+import './content.css';
 import DisplayContent from '../components/DisplayContent';
 import FullContent from '../components/FullContent';
 export default class Content extends React.Component{
 	constructor(props) {
 
 		super(props);
-		console.log(props);
 		this.state = {
 		}
 		this.getContentObject = this.getContentObject.bind(this);
