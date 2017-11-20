@@ -15,11 +15,11 @@ class Presentation extends React.Component{
     }
 
     handleChangeTitle(obj){
-    	this.updatePres(this.props.id, obj.target.value, this.props.description, this.props.slidArray);
+    	this.updatePres(this.props.presentation.id, obj.target.value, this.props.presentation.description, this.props.presentation.slidArray);
     }
 
     handleChangeDescription(obj){
-    	this.updatePres(this.props.id, this.props.title, obj.target.value, this.props.slidArray);
+    	this.updatePres(this.props.presentation.id, this.props.presentation.title, obj.target.value, this.props.presentation.slidArray);
     }
 
     updatePres(id, title, description, slidArray){
@@ -49,11 +49,4 @@ class Presentation extends React.Component{
 	}
 }
 
-const mapStateToProps = (state, ownProps) => {
-	return {
-		contentMap: state.updateModelReducer.contentMap,
-		presentation: state.updateModelReducer.presentation,
-	}
-};
-
-export default connect(mapStateToProps)(Presentation);
+export default connect()(Presentation);

@@ -10,6 +10,7 @@ class Slid extends React.Component{
 
         this.state = {
         };
+        
         this.displaySlid = this.displaySlid.bind(this);
         this.handleChangeTitle = this.handleChangeTitle.bind(this);
         this.handleChangeTxt = this.handleChangeTxt.bind(this);
@@ -17,19 +18,11 @@ class Slid extends React.Component{
     }
 
     handleChangeTitle(obj) {
-    	const tmpSlid={id:this.props.id,
-		title:obj.target.value,
-		txt:this.props.txt,
-		content_id:this.props.content_id};
-		this.props.dispatch(setSelectedSlid(tmpSlid));
+    	this.props.updateSlid(this.props.id,obj.target.value,this.props.txt,this.props.content_id);
     }
 
     handleChangeTxt(obj) {
-    	const tmpSlid={id:this.props.id,
-		title:obj.target.title,
-		txt:this.state.txt,
-		content_id:this.props.content_id};
-		this.props.dispatch(setSelectedSlid(tmpSlid));
+    	this.props.updateSlid(this.props.id,this.props.title,obj.target.value,this.props.content_id);
     }
 
     updateSelectedSlid(){

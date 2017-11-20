@@ -18,3 +18,10 @@ export const updatePresentation=(presentation_obj)=>{
 		obj:presentation_obj
 	};
 }
+
+export const updatePresentationSlid=(slid_obj)=>{
+	return {
+		type: 'UPDATE_PRESENTATION_SLIDS',
+		obj:slid_obj
+	};
+}

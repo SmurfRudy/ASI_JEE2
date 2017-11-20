@@ -8,7 +8,20 @@ const updateModelReducer= (state={presentation:{},contentMap:{}},action) => {
 	 		const newPresentation={presentation:action.obj,contentMap:state.contentMap};
 	 		return newPresentation;
 		case 'UPDATE_PRESENTATION_SLIDS':
-			return; //TO DO
+			let newSlidArray = state.presentation.slidArray;
+			newSlidArray.forEach(function(value, index){
+				if (value.id === action.obj.id){
+					newSlidArray[index] = action.obj;
+				}
+			});
+			const newPresentationSlid={
+				id:state.presentation.id,
+				title:state.presentation.title,
+				description:state.presentation.description,
+				slidArray:newSlidArray
+			};
+			const newPresentationSlids={presentation:newPresentationSlid,contentMap:state.contentMap};
+			return newPresentationSlids;
 		case 'UPDATE_CONTENT_MAP':
 			const newContentMap={presentation:state.presentation,contentMap:action.obj};
 			return newContentMap;

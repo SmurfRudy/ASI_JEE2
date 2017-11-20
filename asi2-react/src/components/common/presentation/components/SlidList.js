@@ -13,7 +13,7 @@ export default class SlidList extends React.Component{
 
     createSlidList(){
     	let slidList = [];
-    	for(var slid of this.state.slidArray){
+    	for(var slid of this.props.slidArray){
     		slidList.push(
     			<div key={slid.id}>
     				<Slid id={slid.id}

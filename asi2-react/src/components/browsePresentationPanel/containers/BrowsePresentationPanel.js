@@ -1,5 +1,8 @@
 import React from 'react';
-export default class BrowsePresentationPanel extends React.Component{
+import Presentation from '../../common/presentation/containers/Presentation';
+import {connect } from 'react-redux';
+
+class BrowsePresentationPanel extends React.Component{
 
 	constructor(props) {
         super(props);
@@ -9,5 +12,19 @@ export default class BrowsePresentationPanel extends React.Component{
     }
 
 	render(){
+		return(
+			<Presentation presentation={this.props.presentation}
+							contentMap={this.props.contentMap}
+			/>
+		);
 	}
 }
+
+const mapStateToProps = (state, ownProps) => {
+	return {
+		contentMap: state.updateModelReducer.contentMap,
+		presentation: state.updateModelReducer.presentation,
+	}
+};
+
+export default connect(mapStateToProps)(BrowsePresentationPanel);
