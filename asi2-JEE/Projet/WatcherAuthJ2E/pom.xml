@@ -44,10 +44,6 @@
         <!-- Depend on the ejb module and war so that we can package them -->
         <dependency>
             <groupId>fr.cpe</groupId>
-            <artifactId>MiddleAuthWatcherEJBClient</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>fr.cpe</groupId>
             <artifactId>FrontAuthWatcherWebService</artifactId>
             <type>war</type>
         </dependency>
@@ -55,6 +51,17 @@
             <groupId>fr.cpe</groupId>
             <artifactId>MiddleAuthWatcherEJB</artifactId>
             <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>fr.cpe</groupId>
+            <artifactId>WatcherAuthProject</artifactId>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>fr.cpe</groupId>
+            <artifactId>MiddleAuthWatcherEJBClient</artifactId>
+            <type>ejb</type>
+            <version>3.1</version>
         </dependency>
     </dependencies>
 

@@ -40,6 +40,7 @@
     </licenses>
 
     <dependencies>
+    	
 
         <!-- Declare the APIs we depend on and need for compilation. All of 
             them are provided by JBoss WildFly -->
