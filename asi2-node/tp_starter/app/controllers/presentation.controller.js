@@ -34,8 +34,27 @@ this.loadPres = function(request, response){
 	});
 };
 
-this.insertPres = function(request, response){
-	//TODO
+this.savePres = function(request, response){
+	var content;
+	
+	request.on("data", function(data){
+		content += data;
+	});
+
+	request.on("end", function(){
+		fs.writeFile(CONFIG.presentationDirectory+utils.generateUUID()+".pres.json", content,  (err) => {
+  			if (err) throw err;
+			response.status(200).send("The pres has been saved!");
+  			console.log('The pres has been saved!');
+		});
+	});
+/*
+	console.log(request.body);
+	fs.writeFile(CONFIG.presentationDirectory+utils.generateUUID()+".pres.json", JSON.stringify(request.body),  (err) => {
+  		if (err) throw err;
+		response.status(200).send("The pres has been saved!");
+  		console.log('The pres has been saved!');
+}); */
 	
 };
 
