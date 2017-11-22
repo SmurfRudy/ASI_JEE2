@@ -9,7 +9,7 @@ var ContentModel = require("./app/models/content.model.js");
 var content = new ContentModel();
 
 content.id = utils.generateUUID();
-content.type = "myType";
+content.type = "img";
 content.title = "myTitle";
 content.fileName = content.id + ".txt";
 content.setData("It Works !");
@@ -87,6 +87,13 @@ function testRead(content) {
 function testUpdate(content) {
 	console.log("====== TEST UPDATE =======");
 	console.dir(content);
+var content = new ContentModel();
+
+	content.id = utils.generateUUID();
+	content.type = "img";
+	content.title = "myTitle";
+	content.fileName = content.id + ".txt";
+	content.setData("It Works !");	
 	content.title = "MOD_title";
 	var newData = content.getData() + " YES,  IT IS !!!"
 	content.setData(newData);

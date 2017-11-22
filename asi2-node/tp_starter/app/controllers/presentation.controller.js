@@ -10,8 +10,8 @@ module.exports = this;
 this.loadPres = function(request, response){
 	fs.readdir(CONFIG.presentationDirectory, function(err, data) {
 		var presentations = {};
-		//TODO gestion erreur
 		var ctr = 0;
+		
 		data.forEach(function(filename, index, array) {
 			ctr++;
 			if (path.extname(filename) === '.json') {
@@ -20,13 +20,12 @@ this.loadPres = function(request, response){
 					if (!!err) {
                     	return reject(err);
                 	}
-
                 	var object = JSON.parse(data);
 					console.log(id);
 					console.log(object);
 					presentations[id] = object;
 					if (ctr === array.length) {
-						response.send(presentations);
+						response.status(200).send(presentations);
 					}
 				});
 			}
@@ -35,15 +34,19 @@ this.loadPres = function(request, response){
 };
 
 this.savePres = function(request, response){
-	var content;
+	var content ="";
 	
 	request.on("data", function(data){
 		content += data;
 	});
 
 	request.on("end", function(){
-		fs.writeFile(CONFIG.presentationDirectory+utils.generateUUID()+".pres.json", content,  (err) => {
-  			if (err) throw err;
+		JSON.parse(content)
+		let id = JSON.parse(content).id;
+
+		console.log(content.id);
+		fs.writeFile(CONFIG.presentationDirectory+id+".pres.json", content,  (err) => {
+  			if (err) response.status(500).send("[ERROR]"+err);
 			response.status(200).send("The pres has been saved!");
   			console.log('The pres has been saved!');
 		});

@@ -2,13 +2,14 @@ import React from 'react';
 import './main.css';
 import '../../lib/bootstrap-4.0.0-beta.2/dist/css/bootstrap.min.css';
 import '../../lib/bootstrap-4.0.0-beta.2/dist/css/bootstrap-grid.min.css';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import * as contentMapTmp from '../../source/contentMap.json';
 import * as presTmp from '../../source/efa0a79a-2f20-4e97-b0b7-71f824bfe349.pres.json';
 
 import BrowseContentPanel from '../browseContentPanel/containers/BrowseContentPanel';
 import EditSlidPanel from '../editSlidPanel/containers/EditSlidPanel';
-import Presentation from '../common/presentation/containers/Presentation';
+import BrowsePresentationPanel from '../browsePresentationPanel/containers/BrowsePresentationPanel';
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -17,9 +18,18 @@ import {setSelectedSlid,updateContentMap,updatePresentation} from '../../actions
 
 const store = createStore(globalReducer);
 
+var Comm = require('../../services/Comm.js');
+
 export default class Main extends React.Component{
 	constructor(props) {
 		super(props);
+		const comm = new Comm();
+		/*comm.loadPres(0,function(data){
+			console.log(data);
+		}, function(error){
+
+		});
+		*/
 		let tempSelectedSlid = presTmp.slidArray[0];
 
 		this.state = {
@@ -36,27 +46,21 @@ export default class Main extends React.Component{
 	render() {
 		return (
 			<Provider store={store} >
+			<MuiThemeProvider>
 			<div className='container-fluid height-100'>
 				<div className="row height-100">
 					<div className='col-md-3 col-lg-3 height-100 vertical-scroll'>
-						<Presentation id={this.state.pres.id}
-										title={this.state.pres.title}
-										description={this.state.pres.description}
-										slidArray={this.state.pres.slidArray}
-										contentMap={this.state.contentMap}
-						/>
-										
+						<BrowsePresentationPanel/>										
 					</div>
 					<div className='col-md-6 col-lg-6 height-100'>
-						<EditSlidPanel selected_slid={this.state.selected_slid}
-										contentMap={this.state.contentMap}
-						/>
+						<EditSlidPanel/>
 					</div>
 					<div className='col-md-3 col-lg-3 height-100'>
-						<BrowseContentPanel contentMap={this.state.contentMap}/>
+						<BrowseContentPanel/>
 					</div>
 				</div>
 			</div>
+			</MuiThemeProvider>
 			</Provider>
 		);
 	}
