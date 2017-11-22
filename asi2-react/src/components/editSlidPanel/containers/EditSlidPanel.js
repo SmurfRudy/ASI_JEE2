@@ -27,7 +27,7 @@ class EditSlidePanel extends React.Component{
 			<Slid id={this.props.selected_slid.id}
 						title={this.props.selected_slid.title}
 						txt={this.props.selected_slid.txt}
-						content="temp"
+						content={this.props.selected_slid.content_id}
 						contentMap={this.props.contentMap}
 						displayMode="FULL_MNG"
 						updateSlid={this.updateSlid}

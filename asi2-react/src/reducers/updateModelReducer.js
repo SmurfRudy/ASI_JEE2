@@ -2,7 +2,6 @@
 
 //obligé de retourner un objet similaire à state : obligé ?
 const updateModelReducer= (state={presentation:{},contentMap:{}},action) => {
-	console.log(action);
 	switch (action.type) {
 		case 'UPDATE_PRESENTATION':
 	 		const newPresentation={presentation:action.obj,contentMap:state.contentMap};
@@ -26,7 +25,10 @@ const updateModelReducer= (state={presentation:{},contentMap:{}},action) => {
 			const newContentMap={presentation:state.presentation,contentMap:action.obj};
 			return newContentMap;
 		case 'ADD_CONTENT':
-			return; //TO DO
+			// state.contentMap[Object.keys(state.contentMap).length] = action.obj;
+			state.contentMap[action.obj.id] = action.obj;
+			const newContentMapState={presentation:state.presentation,contentMap:state.contentMap};
+			return newContentMapState;
 		default:
 			return state;
 	}

@@ -19,11 +19,13 @@ export default class Content extends React.Component{
 		if(this.props.onlyContent === "true"){
 			//affichage en petit à droite
 			return (
-				<DisplayContent id={this.props.id}
-								src={this.props.src}
-								type={this.props.type}
-								title={this.props.title}
-								/>
+				<div>
+					<DisplayContent id={this.props.id}
+									src={this.props.src}
+									type={this.props.type}
+									title={this.props.title}
+					/>
+				</div>
 			);
 		}
 		else{

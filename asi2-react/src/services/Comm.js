@@ -36,7 +36,7 @@ class Comm{
         .then(function (data) {
             callback(data);
 
-        }
+        })
         .catch(function (error) {
             callbackErr(error);
         });

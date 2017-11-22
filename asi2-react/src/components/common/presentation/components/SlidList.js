@@ -19,7 +19,7 @@ export default class SlidList extends React.Component{
     				<Slid id={slid.id}
 						title={slid.title}
 						txt={slid.txt}
-						content="temp"
+						content={slid.content_id}
 						contentMap={this.props.contentMap}
 						displayMode="SHORT"
 					/>
