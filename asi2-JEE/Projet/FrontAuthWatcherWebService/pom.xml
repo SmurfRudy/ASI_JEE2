@@ -27,7 +27,7 @@
 
    <artifactId>FrontAuthWatcherWebService</artifactId>
    <packaging>war</packaging>
-
+   
    <name>Projet: WAR Module (FrontAuthWatcherWebService)</name>
 
    <url>http://wildfly.org</url>
@@ -46,7 +46,14 @@
          <groupId>fr.cpe</groupId>
          <artifactId>MiddleAuthWatcherEJBClient</artifactId>
          <scope>provided</scope>
-      </dependency>
+         <type>ejb</type>
+      </dependency> 
+      <dependency>
+			<groupId>org.jboss.spec.javax.jms</groupId>
+			<artifactId>jboss-jms-api_2.0_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+     
 
       <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss WildFly -->
       <dependency>
@@ -68,6 +75,7 @@
          <artifactId>jboss-json-api_1.0_spec</artifactId>
          <scope>provided</scope>
       </dependency>
+      
    </dependencies>
 
    <build>
