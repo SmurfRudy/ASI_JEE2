@@ -16,8 +16,8 @@ app.use(contentRoute);
 
 // ressources statiques
 var path = require("path");
-app.use("/admin", express.static(path.join(__dirname, "public/admin")));
-app.use("/watch", express.static(path.join(__dirname, "public/watch")));
+app.use("/admin", express.static(path.join(__dirname, "./public/admin")));
+app.use("/watch", express.static(path.join(__dirname, "./public/watch")));
 
 
 var bodyParser = require('body-parser');
