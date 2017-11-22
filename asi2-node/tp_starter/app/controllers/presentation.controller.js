@@ -10,8 +10,8 @@ module.exports = this;
 this.loadPres = function(request, response){
 	fs.readdir(CONFIG.presentationDirectory, function(err, data) {
 		var presentations = {};
-		//TODO gestion erreur
 		var ctr = 0;
+		
 		data.forEach(function(filename, index, array) {
 			ctr++;
 			if (path.extname(filename) === '.json') {
