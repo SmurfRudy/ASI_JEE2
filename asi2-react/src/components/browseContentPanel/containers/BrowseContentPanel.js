@@ -130,6 +130,7 @@ class BrowseContentPanel extends Component {
             left: 'auto',
             position: 'fixed',
         }
+        if (this.props.contentMap){
         return ( 
             <div>
                 <AddContentPanel actions={this.state.actions}
@@ -150,6 +151,9 @@ class BrowseContentPanel extends Component {
                 </FloatingActionButton>
             </div>
         );
+        }else{
+            return ("wait");
+        }
     }
 }
 

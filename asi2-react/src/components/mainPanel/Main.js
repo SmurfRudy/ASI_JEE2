@@ -4,8 +4,8 @@ import '../../lib/bootstrap-4.0.0-beta.2/dist/css/bootstrap.min.css';
 import '../../lib/bootstrap-4.0.0-beta.2/dist/css/bootstrap-grid.min.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import * as contentMapTmp from '../../source/contentMap.json';
-import * as presTmp from '../../source/efa0a79a-2f20-4e97-b0b7-71f824bfe349.pres.json';
+//import * as contentMapTmp from '../../source/contentMap.json';
+//import * as presTmp from '../../source/efa0a79a-2f20-4e97-b0b7-71f824bfe349.pres.json';
 
 import BrowseContentPanel from '../browseContentPanel/containers/BrowseContentPanel';
 import EditSlidPanel from '../editSlidPanel/containers/EditSlidPanel';
@@ -24,23 +24,29 @@ export default class Main extends React.Component{
 	constructor(props) {
 		super(props);
 		const comm = new Comm();
-		/*comm.loadPres(0,function(data){
-			console.log(data);
+		let presTmp;
+		let tempSelectedSlid
+		comm.loadPres(0,function(data){
+			presTmp = data;
+			tempSelectedSlid = presTmp.slidArray[0];
+			store.dispatch(updatePresentation(presTmp));
+			store.dispatch(setSelectedSlid(tempSelectedSlid));
 		}, function(error){
 
 		});
-		*/
-		let tempSelectedSlid = presTmp.slidArray[0];
+
+		comm.loadContent(function(data){
+			contentMapTmp = data;
+			store.dispatch(updateContentMap(contentMapTmp));
+		}, function(error){
+
+		});
 
 		this.state = {
 			contentMap:contentMapTmp,
 			selected_slid:tempSelectedSlid,
 			pres:presTmp,
 		}
-
-		store.dispatch(updateContentMap(contentMapTmp));
-		store.dispatch(updatePresentation(presTmp));
-		store.dispatch(setSelectedSlid(tempSelectedSlid));
 	}
 
 	render() {

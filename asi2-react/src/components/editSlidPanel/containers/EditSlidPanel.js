@@ -23,6 +23,7 @@ class EditSlidePanel extends React.Component{
     }
 
 	render(){
+		if (this.props.selected_slid && this.props.contentMap){
 		return(
 			<Slid id={this.props.selected_slid.id}
 						title={this.props.selected_slid.title}
@@ -33,6 +34,9 @@ class EditSlidePanel extends React.Component{
 						updateSlid={this.updateSlid}
 			/>
 		);
+		}else{
+			return ("wait");
+		}
 	}
 }
 

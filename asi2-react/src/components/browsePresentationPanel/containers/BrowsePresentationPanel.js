@@ -12,11 +12,15 @@ class BrowsePresentationPanel extends React.Component{
     }
 
 	render(){
+		if (this.props.presentation && this.props.contentMap){
 		return(
-			<Presentation presentation={this.props.presentation}
-							contentMap={this.props.contentMap}
-			/>
+				<Presentation presentation={this.props.presentation}
+								contentMap={this.props.contentMap}
+				/>
 		);
+		}else{
+			return ("wait");
+		}
 	}
 }
 
